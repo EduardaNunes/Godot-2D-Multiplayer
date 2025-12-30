@@ -12,7 +12,7 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("menuButtons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qlr77")
 gameScene = ExtResource("2_3j6ch")
+menuButtons = [NodePath("Panel/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Client")]
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1

@@ -3,7 +3,7 @@
 
 extends Control
 @export var gameScene : PackedScene
-@onready var menuButtons : Array[Button]
+@export var menuButtons : Array[Button]
 
 func _ready() -> void:
 	toggle_buttons('enable')
