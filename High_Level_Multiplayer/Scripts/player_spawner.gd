@@ -13,6 +13,7 @@ func _ready() -> void:
 		# peer connected and disconnected alredy pass the multiplayer id to the calling function
 		multiplayer.peer_connected.connect(spawn)
 		multiplayer.peer_disconnected.connect(remove_player)
+		
 # ---------------------------------------------------------------------------- #
 
 func spawn_player(id):
