@@ -1,10 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://lsvkqwnmxgdq"]
+[gd_scene load_steps=13 format=3 uid="uid://lsvkqwnmxgdq"]
 
 [ext_resource type="Texture2D" uid="uid://6wjicvm4wfyb" path="res://High_Level_Multiplayer/Assets/Sprites/icon.svg" id="1_bc6je"]
 [ext_resource type="Script" uid="uid://bqkcwa5hcg8r5" path="res://High_Level_Multiplayer/Scripts/player.gd" id="1_t3u3m"]
+[ext_resource type="Texture2D" uid="uid://ce6r6khppbmkw" path="res://High_Level_Multiplayer/Assets/Sprites/skeleton_idle_strip6.png" id="3_4s802"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdqdn"]
+atlas = ExtResource("3_4s802")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7kcs"]
+atlas = ExtResource("3_4s802")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwyrf"]
+atlas = ExtResource("3_4s802")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxxsp"]
+atlas = ExtResource("3_4s802")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0qfk"]
+atlas = ExtResource("3_4s802")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdr30"]
+atlas = ExtResource("3_4s802")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rjae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdqdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7kcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwyrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxxsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0qfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdr30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3u3m"]
-size = Vector2(119, 119)
+size = Vector2(9, 15)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4s802"]
 properties/0/path = NodePath(".:position")
@@ -12,14 +63,24 @@ properties/0/spawn = true
 properties/0/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_t3u3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_bc6je")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3rjae")
+autoplay = "default"
+frame_progress = 0.11190288
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_t3u3m")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_4s802")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
