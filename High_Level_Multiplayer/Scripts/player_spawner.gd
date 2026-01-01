@@ -32,3 +32,25 @@ func remove_player(id):
 		get_node(spawn_path).get_node(str(id)).queue_free()
 		
 # ---------------------------------------------------------------------------- #
+"""
+func spawn_player(id: int) -> void:
+	
+	# Only runs by the server
+	if not multiplayer.is_server(): return
+	
+	var player : Node = playerScene.instantiate()
+	player.name = str(id)
+	get_node(spawn_path).call_deferred("add_child", player) # add to the parent node
+"""
+# ---------------------------------------------------------------------------- #
+"""
+func remove_player(id: int) -> void:
+	
+	# Only runs by the server
+	if not multiplayer.is_server(): return
+		
+	var path_node = get_node(spawn_path)
+	if path_node.has_node(str(id)):
+		path_node.get_node(str(id)).queue_free()
+"""
+# ---------------------------------------------------------------------------- #
