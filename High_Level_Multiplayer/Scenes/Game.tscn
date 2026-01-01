@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://bem2m8yse6bfl"]
+[gd_scene load_steps=10 format=4 uid="uid://bem2m8yse6bfl"]
 
+[ext_resource type="Script" uid="uid://davvvokk5bcwh" path="res://High_Level_Multiplayer/Scripts/game.gd" id="1_fvlj0"]
 [ext_resource type="Script" uid="uid://bx7b5hhxs153p" path="res://High_Level_Multiplayer/Scripts/player_spawner.gd" id="2_4a7kj"]
 [ext_resource type="PackedScene" uid="uid://lsvkqwnmxgdq" path="res://High_Level_Multiplayer/Scenes/Player.tscn" id="3_4a7kj"]
 [ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="3_fvlj0"]
@@ -3500,6 +3501,7 @@ sources/0 = SubResource("TileSetAtlasSource_4a7kj")
 size = Vector2(32, 32)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_fvlj0")
 
 [node name="TileMaps" type="Node2D" parent="."]
 
