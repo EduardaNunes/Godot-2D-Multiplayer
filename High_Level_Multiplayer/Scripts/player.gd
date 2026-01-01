@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed : float = 250.0
+const speed : float = 100.0
 @onready var camera = $Camera2D;
 
 # ---------------------------------------------------------------------------- #

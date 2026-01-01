@@ -19,6 +19,10 @@ config/icon="res://High_Level_Multiplayer/Assets/Sprites/icon.svg"
 
 HighLevelNetworkHandler="*res://High_Level_Multiplayer/Scripts/high_level_network_handler.gd"
 
+[global_group]
+
+camera_limits=""
+
 [input]
 
 move_left={

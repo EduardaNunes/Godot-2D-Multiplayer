@@ -19,6 +19,7 @@ func _ready() -> void:
 func spawn_player(id):
 	
 	var player = playerScene.instantiate()
+	player.position = $"../Spawner".position
 	player.name = str(id)
 	player.set_multiplayer_authority(id)
 	# When we return the object the spawn_function adds it to the node parent (spawn path)
