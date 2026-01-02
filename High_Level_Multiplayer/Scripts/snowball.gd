@@ -26,7 +26,6 @@ func _on_body_entered(body):
 	# Ignores the shooter
 	if body.name == str(shooter_id): return
 	
-	print(body.name)
 	if body.has_method("take_damage"):
 		body.take_damage(1)
 		queue_free()

@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
-	setCameraPriority();
+	setCameraPriority()
 
 # ---------------------------------------------------------------------------- #
 
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
 		move_and_slide()
 		
-		# player shooting
+		# player trowing snowballs
 		if Input.is_action_just_pressed("shoot"):
 			HighLevelNetworkHandler.player_trow_snowball.emit(global_position, $MouseAim.global_rotation, name)
 
@@ -49,11 +49,21 @@ func setCameraPriority() -> void:
 
 func take_damage(damage: int) -> void:
 	
-	lifes -= damage
+	if not multiplayer.is_server(): return
+	
+	var new_lifes = lifes - damage
+	update_lifes.rpc(new_lifes)
+	
+# ---------------------------------------------------------------------------- #
+
+@rpc("call_local", "any_peer") 
+func update_lifes(new_value):
+	
+	lifes = new_value
 	took_damage.emit(lifes)
 	
-	if lifes <= 0: die()
-	
+	if lifes <= 0 and multiplayer.is_server(): die()
+		
 # ---------------------------------------------------------------------------- #
 
 func die() -> void:
