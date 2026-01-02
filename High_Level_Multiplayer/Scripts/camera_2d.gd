@@ -38,6 +38,4 @@ func setup_camera_limits():
 	limit_top = map_pos.y + (rect.position.y * tile_size.y)
 	limit_bottom = limit_top + (rect.size.y * tile_size.y)
 	
-	print("Limites definidos: E:", limit_left, " D:", limit_right, " C:", limit_top, " B:", limit_bottom)
-	
 # ---------------------------------------------------------------------------- #

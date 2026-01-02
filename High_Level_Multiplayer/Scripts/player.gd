@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	if not multiplayer.has_multiplayer_peer(): return
+	
 	# Only Run By Correct Client
 	if is_multiplayer_authority():
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
