@@ -1,6 +1,6 @@
 extends Node
 
-signal host_started()
+signal player_trow_snowball(position, rotation, id)
 
 const MENU_SCENE_PATH : String = "res://High_Level_Multiplayer/Scenes/Menu.tscn"
 
@@ -9,10 +9,6 @@ const PORT: int = 42069
 const MAX_CLIENTS = 4 # Default = 32
 
 var peer: ENetMultiplayerPeer
-
-var players = {}
-var player_info = {"name": "Name"}
-var players_loaded = 0
 
 func _ready() -> void:
 	multiplayer.server_disconnected.connect(on_server_disconnected)
@@ -23,7 +19,6 @@ func start_server() -> void:
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
-	host_started.emit()
 	
 # ---------------------------------------------------------------------------- #
 

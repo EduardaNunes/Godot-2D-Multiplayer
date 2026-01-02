@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bem2m8yse6bfl"]
+[gd_scene load_steps=14 format=4 uid="uid://bem2m8yse6bfl"]
 
 [ext_resource type="Script" uid="uid://bx7b5hhxs153p" path="res://High_Level_Multiplayer/Scripts/player_spawner.gd" id="2_4a7kj"]
 [ext_resource type="Texture2D" uid="uid://bn5a5lfy5ucdh" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px_winter_edition.png" id="2_fvlj0"]
 [ext_resource type="PackedScene" uid="uid://lsvkqwnmxgdq" path="res://High_Level_Multiplayer/Scenes/Player.tscn" id="3_4a7kj"]
 [ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="3_fvlj0"]
+[ext_resource type="Script" uid="uid://b5wttodpw2vdn" path="res://High_Level_Multiplayer/Scripts/snowball_spawner.gd" id="5_i0cfy"]
+[ext_resource type="PackedScene" uid="uid://b0f0o3l4rbl1n" path="res://High_Level_Multiplayer/Scenes/Snowball.tscn" id="6_ce125"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5m4dx"]
 texture = ExtResource("3_fvlj0")
@@ -3628,3 +3630,11 @@ _spawnable_scenes = PackedStringArray("uid://lsvkqwnmxgdq")
 spawn_path = NodePath("..")
 script = ExtResource("2_4a7kj")
 playerScene = ExtResource("3_4a7kj")
+
+[node name="Snowballs" type="Node2D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Snowballs"]
+_spawnable_scenes = PackedStringArray("uid://b0f0o3l4rbl1n")
+spawn_path = NodePath("..")
+script = ExtResource("5_i0cfy")
+snowball_scene = ExtResource("6_ce125")

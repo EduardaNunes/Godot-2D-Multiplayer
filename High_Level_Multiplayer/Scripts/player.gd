@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var snowball : PackedScene
+signal shooted
 @onready var camera = $Camera2D
 
 # exported to sync
@@ -27,8 +27,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Only Run By Correct Client
 	if is_multiplayer_authority():
+		
+		# player movement
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
 		move_and_slide()
+		
+		# player shooting
+		if Input.is_action_just_pressed("shoot"):
+			HighLevelNetworkHandler.player_trow_snowball.emit(global_position, $MouseAim.global_rotation, name)
 
 # ---------------------------------------------------------------------------- #
 
@@ -45,7 +51,6 @@ func take_damage(damage: int) -> void:
 	
 	lifes -= damage
 	took_damage.emit(lifes)
-	print('Jogador "', self.name, '" tomou dano | vidas restantes: ', lifes)
 	
 	if lifes <= 0: die()
 	
@@ -53,3 +58,6 @@ func take_damage(damage: int) -> void:
 
 func die() -> void:
 	print('Jogador "', self.name, '" morreu.')
+	
+# ---------------------------------------------------------------------------- #
+	
