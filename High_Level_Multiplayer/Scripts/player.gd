@@ -1,7 +1,13 @@
 extends CharacterBody2D
 
+@export var snowball : PackedScene
+@onready var camera = $Camera2D
+
+# exported to sync
+@export var lifes : int = 3 
+signal took_damage(new_lifes)
+
 const speed : float = 100.0
-@onready var camera = $Camera2D;
 
 # ---------------------------------------------------------------------------- #
 
@@ -26,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 # ---------------------------------------------------------------------------- #
 
-func setCameraPriority():
+func setCameraPriority() -> void:
 	if is_multiplayer_authority():
 		camera.enabled = true
 		camera.make_current()
@@ -34,3 +40,16 @@ func setCameraPriority():
 		camera.enabled = false
 		
 # ---------------------------------------------------------------------------- #
+
+func take_damage(damage: int) -> void:
+	
+	lifes -= damage
+	took_damage.emit(lifes)
+	print('Jogador "', self.name, '" tomou dano | vidas restantes: ', lifes)
+	
+	if lifes <= 0: die()
+	
+# ---------------------------------------------------------------------------- #
+
+func die() -> void:
+	print('Jogador "', self.name, '" morreu.')

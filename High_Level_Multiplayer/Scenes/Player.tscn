@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://lsvkqwnmxgdq"]
+[gd_scene load_steps=18 format=3 uid="uid://lsvkqwnmxgdq"]
 
 [ext_resource type="Texture2D" uid="uid://6wjicvm4wfyb" path="res://High_Level_Multiplayer/Assets/Sprites/icon.svg" id="1_bc6je"]
 [ext_resource type="Script" uid="uid://bqkcwa5hcg8r5" path="res://High_Level_Multiplayer/Scripts/player.gd" id="1_t3u3m"]
 [ext_resource type="Texture2D" uid="uid://ce6r6khppbmkw" path="res://High_Level_Multiplayer/Assets/Sprites/skeleton_idle_strip6.png" id="3_4s802"]
 [ext_resource type="Script" uid="uid://chvrpwchgxlts" path="res://High_Level_Multiplayer/Scripts/camera_2d.gd" id="4_qdqdn"]
 [ext_resource type="PackedScene" uid="uid://12e5jjb14p1n" path="res://High_Level_Multiplayer/Scenes/Esc_Menu.tscn" id="5_u7kcs"]
+[ext_resource type="Texture2D" uid="uid://ensq6ynoecw" path="res://High_Level_Multiplayer/Assets/Sprites/lifes_border.png" id="6_s0qfk"]
+[ext_resource type="Texture2D" uid="uid://d0u6c2sgqtx3e" path="res://High_Level_Multiplayer/Assets/Sprites/lifes_filler.png" id="7_tdr30"]
+[ext_resource type="Script" uid="uid://dde6orjayt5re" path="res://High_Level_Multiplayer/Scripts/lifes_bar.gd" id="8_3rjae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdqdn"]
 atlas = ExtResource("3_4s802")
@@ -63,6 +66,12 @@ size = Vector2(9, 15)
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:lifes")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("TextureProgressBar:value")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_t3u3m")
@@ -91,3 +100,12 @@ script = ExtResource("4_qdqdn")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EscMenu" parent="CanvasLayer" instance=ExtResource("5_u7kcs")]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 9.0
+offset_bottom = -4.0
+texture_over = ExtResource("6_s0qfk")
+texture_progress = ExtResource("7_tdr30")
+script = ExtResource("8_3rjae")
