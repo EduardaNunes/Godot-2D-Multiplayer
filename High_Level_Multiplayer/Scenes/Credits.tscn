@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://b81ktx1s238fg"]
+[gd_scene load_steps=10 format=4 uid="uid://cg1pbh1isv2f1"]
 
-[ext_resource type="Script" uid="uid://xtmx05cmf1js" path="res://High_Level_Multiplayer/Scripts/menu.gd" id="1_qlr77"]
-[ext_resource type="PackedScene" uid="uid://bem2m8yse6bfl" path="res://High_Level_Multiplayer/Scenes/Game.tscn" id="2_3j6ch"]
-[ext_resource type="Texture2D" uid="uid://kkh8fi3mbhwo" path="res://High_Level_Multiplayer/Assets/Sprites/white_block.png" id="2_ctxuo"]
-[ext_resource type="FontFile" uid="uid://brgd3gf6diskh" path="res://High_Level_Multiplayer/Assets/Fonts/ThaleahFat.ttf" id="3_3j6ch"]
-[ext_resource type="PackedScene" uid="uid://cg1pbh1isv2f1" path="res://High_Level_Multiplayer/Scenes/Credits.tscn" id="3_4ihmy"]
-[ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="3_158ef"]
-[ext_resource type="Texture2D" uid="uid://bn5a5lfy5ucdh" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px_winter_edition.png" id="4_4ihmy"]
+[ext_resource type="Script" uid="uid://bfwqukmvrsx8m" path="res://High_Level_Multiplayer/Scripts/credits.gd" id="1_dr178"]
+[ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_luaiw"]
+[ext_resource type="Texture2D" uid="uid://bn5a5lfy5ucdh" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px_winter_edition.png" id="3_x5suk"]
+[ext_resource type="Texture2D" uid="uid://kkh8fi3mbhwo" path="res://High_Level_Multiplayer/Assets/Sprites/white_block.png" id="4_oyqm0"]
+[ext_resource type="FontFile" uid="uid://brgd3gf6diskh" path="res://High_Level_Multiplayer/Assets/Fonts/ThaleahFat.ttf" id="5_b20xe"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mncx"]
-texture = ExtResource("3_158ef")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ypdf"]
+texture = ExtResource("2_luaiw")
 12:0/0 = 0
 13:0/0 = 0
 14:0/0 = 0
@@ -1751,8 +1749,8 @@ texture = ExtResource("3_158ef")
 42:49/0 = 0
 43:49/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvbt5"]
-texture = ExtResource("4_4ihmy")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptnwi"]
+texture = ExtResource("3_x5suk")
 1:34/0 = 0
 2:34/0 = 0
 3:34/0 = 0
@@ -1802,33 +1800,31 @@ texture = ExtResource("4_4ihmy")
 7:47/0 = 0
 8:47/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_nsya4"]
-sources/0 = SubResource("TileSetAtlasSource_7mncx")
-sources/1 = SubResource("TileSetAtlasSource_wvbt5")
+[sub_resource type="TileSet" id="TileSet_i72h2"]
+sources/0 = SubResource("TileSetAtlasSource_6ypdf")
+sources/1 = SubResource("TileSetAtlasSource_ptnwi")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jcrr"]
-texture = ExtResource("2_ctxuo")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g74la"]
+texture = ExtResource("4_oyqm0")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("menuButtons")]
+[node name="Credits" type="Control" node_paths=PackedStringArray("buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qlr77")
-gameScene = ExtResource("2_3j6ch")
-CreditsScene = ExtResource("3_4ihmy")
-menuButtons = [NodePath("Panel/Container/VBoxContainer/VBoxContainer/Tutorial"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Client"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Credits"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Exit")]
+script = ExtResource("1_dr178")
+buttons = [NodePath("Panel/Container/VBoxContainer/Back")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3.5, 3.5)
 tile_map_data = PackedByteArray("AAAAAAAAAQABAC0AAAAAAAEAAQACACwAAAAAAAIAAQACACwAAAAAAAMAAQACACwAAAAAAAQAAQACACwAAAAAAAUAAQACAC8AAAAAAAYAAQACACwAAAAAAAcAAQACAC0AAAAAAAgAAQACACwAAAAAAAkAAQACAC8AAAAAAAoAAQACACwAAAAAAAsAAQACAC4AAAABAAAAAQABAC0AAAABAAEAAQACACwAAAABAAIAAQACACwAAAABAAMAAQACACwAAAABAAQAAQACAC8AAAABAAUAAQACACwAAAABAAYAAQABAC8AAAABAAcAAQACACwAAAABAAgAAQACACwAAAABAAkAAQACACwAAAABAAoAAQABAC0AAAABAAsAAQACAC4AAAACAAAAAQACACwAAAACAAEAAQABAC0AAAACAAIAAQACACwAAAACAAMAAQACACwAAAACAAQAAQABAC0AAAACAAUAAQACAC4AAAACAAYAAQACAC4AAAACAAcAAQACACwAAAACAAgAAQACAC8AAAACAAkAAQACACwAAAACAAoAAQACACwAAAACAAsAAQACACwAAAADAAAAAQABAC0AAAADAAEAAQACACwAAAADAAIAAQACACwAAAADAAMAAQACAC0AAAADAAQAAQACACwAAAADAAUAAQACACwAAAADAAYAAQACACwAAAADAAcAAQACACwAAAADAAgAAQACAC4AAAADAAkAAQACAC4AAAADAAoAAQACAC0AAAADAAsAAQACAC8AAAAEAAAAAQABAC8AAAAEAAEAAQABAC0AAAAEAAIAAQACACwAAAAEAAMAAQACAC4AAAAEAAQAAQACAC4AAAAEAAUAAQACACwAAAAEAAYAAQACACwAAAAEAAcAAQACACwAAAAEAAgAAQACAC8AAAAEAAkAAQACACwAAAAEAAoAAQACACwAAAAEAAsAAQABAC8AAAAFAAAAAQACAC0AAAAFAAEAAQACACwAAAAFAAIAAQACAC0AAAAFAAMAAQACAC8AAAAFAAQAAQABAC0AAAAFAAUAAQACACwAAAAFAAYAAQACACwAAAAFAAcAAQACACwAAAAFAAgAAQACAC4AAAAFAAkAAQACAC0AAAAFAAoAAQACACwAAAAFAAsAAQABAC0AAAAGAAAAAQACAC4AAAAGAAEAAQACACwAAAAGAAIAAQABAC0AAAAGAAMAAQACACwAAAAGAAQAAQABAC8AAAAGAAUAAQACACwAAAAGAAYAAQACACwAAAAGAAcAAQACACwAAAAGAAgAAQACAC0AAAAGAAkAAQACAC0AAAAGAAoAAQACACwAAAAGAAsAAQABAC0AAAAHAAAAAQACAC8AAAAHAAEAAQACACwAAAAHAAIAAQACACwAAAAHAAMAAQACAC8AAAAHAAQAAQACACwAAAAHAAUAAQACACwAAAAHAAYAAQACACwAAAAHAAcAAQACACwAAAAHAAgAAQABAC8AAAAHAAkAAQABAC8AAAAHAAoAAQACAC8AAAAHAAsAAQACAC0AAAAIAAAAAQACACwAAAAIAAEAAQACACwAAAAIAAIAAQABAC0AAAAIAAMAAQACAC4AAAAIAAQAAQACACwAAAAIAAUAAQACACwAAAAIAAYAAQACAC8AAAAIAAcAAQACACwAAAAIAAgAAQACAC4AAAAIAAkAAQABAC8AAAAIAAoAAQACAC4AAAAIAAsAAQABAC8AAAAJAAAAAQACAC8AAAAJAAEAAQACACwAAAAJAAIAAQACAC0AAAAJAAMAAQACACwAAAAJAAQAAQACACwAAAAJAAUAAQACACwAAAAJAAYAAQACAC8AAAAJAAcAAQACACwAAAAJAAgAAQACACwAAAAJAAkAAQACAC8AAAAJAAoAAQACAC8AAAAJAAsAAQACACwAAAAKAAAAAQACAC8AAAAKAAEAAQACACwAAAAKAAIAAQACACwAAAAKAAMAAQACACwAAAAKAAQAAQABAC8AAAAKAAUAAQACAC8AAAAKAAYAAQACACwAAAAKAAcAAQACACwAAAAKAAgAAQACACwAAAAKAAkAAQACACwAAAAKAAoAAQACAC8AAAAKAAsAAQACACwAAAALAAAAAQABAC8AAAALAAEAAQABAC8AAAALAAIAAQABAC8AAAALAAMAAQABAC8AAAALAAQAAQACACwAAAALAAUAAQACAC0AAAALAAYAAQABAC8AAAALAAcAAQACACwAAAALAAgAAQACACwAAAALAAkAAQACACwAAAALAAoAAQACACwAAAALAAsAAQACAC8AAAAMAAAAAQABAC8AAAAMAAEAAQABAC0AAAAMAAIAAQACACwAAAAMAAMAAQACACwAAAAMAAQAAQACAC4AAAAMAAUAAQABAC8AAAAMAAYAAQACAC8AAAAMAAcAAQACAC4AAAAMAAgAAQACACwAAAAMAAkAAQACACwAAAAMAAoAAQACACwAAAAMAAsAAQACAC0AAAANAAAAAQACACwAAAANAAEAAQABAC0AAAANAAIAAQACACwAAAANAAMAAQACACwAAAANAAQAAQACACwAAAANAAUAAQACAC0AAAANAAYAAQACAC8AAAANAAcAAQABAC0AAAANAAgAAQABAC0AAAANAAkAAQACACwAAAANAAoAAQACACwAAAANAAsAAQACAC8AAAAOAAAAAQACAC8AAAAOAAEAAQACACwAAAAOAAIAAQACACwAAAAOAAMAAQABAC0AAAAOAAQAAQACACwAAAAOAAUAAQACAC8AAAAOAAYAAQACACwAAAAOAAcAAQACACwAAAAOAAgAAQACACwAAAAOAAkAAQACACwAAAAOAAoAAQACAC8AAAAOAAsAAQACACwAAAAPAAAAAQACAC8AAAAPAAEAAQACACwAAAAPAAIAAQABAC8AAAAPAAMAAQACAC0AAAAPAAQAAQACACwAAAAPAAUAAQABAC8AAAAPAAYAAQABAC0AAAAPAAcAAQABAC8AAAAPAAgAAQACACwAAAAPAAkAAQACACwAAAAPAAoAAQACAC8AAAAPAAsAAQACAC8AAAAQAAAAAQACACwAAAAQAAEAAQABAC0AAAAQAAIAAQABAC8AAAAQAAMAAQACACwAAAAQAAQAAQACAC0AAAAQAAUAAQABAC8AAAAQAAYAAQACAC8AAAAQAAcAAQACACwAAAAQAAgAAQACACwAAAAQAAkAAQACACwAAAAQAAoAAQACAC8AAAAQAAsAAQACAC4AAAARAAAAAQACACwAAAARAAEAAQACACwAAAARAAIAAQACACwAAAARAAMAAQACAC0AAAARAAQAAQABAC8AAAARAAUAAQACAC4AAAARAAYAAQACACwAAAARAAcAAQACACwAAAARAAgAAQABAC0AAAARAAkAAQACACwAAAARAAoAAQABAC8AAAARAAsAAQACAC8AAAASAAAAAQACACwAAAASAAEAAQACAC0AAAASAAIAAQACACwAAAASAAMAAQACACwAAAASAAQAAQACACwAAAASAAUAAQACAC4AAAASAAYAAQACACwAAAASAAcAAQACACwAAAASAAgAAQACACwAAAASAAkAAQACACwAAAASAAoAAQACACwAAAASAAsAAQACAC0AAAATAAAAAQACACwAAAATAAEAAQACAC4AAAATAAIAAQACAC8AAAATAAMAAQACAC8AAAATAAQAAQACACwAAAATAAUAAQACACwAAAATAAYAAQACACwAAAATAAcAAQABAC0AAAATAAgAAQABAC8AAAATAAkAAQACAC0AAAATAAoAAQACAC4AAAATAAsAAQACACwAAAAUAAAAAQACAC8AAAAUAAEAAQACAC4AAAAUAAIAAQACACwAAAAUAAMAAQACAC4AAAAUAAQAAQACAC8AAAAUAAUAAQACAC0AAAAUAAYAAQACACwAAAAUAAcAAQACAC0AAAAUAAgAAQABAC8AAAAUAAkAAQACAC4AAAAUAAoAAQABAC8AAAAUAAsAAQACAC8AAAA=")
-tile_set = SubResource("TileSet_nsya4")
+tile_set = SubResource("TileSet_i72h2")
 
 [node name="Panel2" type="Panel" parent="."]
 visible = false
@@ -1848,13 +1844,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -250.0
 offset_top = -200.0
-offset_right = 200.0
+offset_right = 250.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_3jcrr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_g74la")
 
 [node name="Container" type="BoxContainer" parent="Panel"]
 layout_mode = 1
@@ -1880,46 +1876,48 @@ layout_mode = 2
 [node name="Title" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_3j6ch")
+theme_override_fonts/font = ExtResource("5_b20xe")
 theme_override_font_sizes/font_size = 50
-text = "Snow Battle"
+text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Um jogo multiplayer"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Container/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Tutorial" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Tutorial"
+size_flags_horizontal = 4
+text = "Game Developer - Eduarda P M Nunes"
 
-[node name="Host" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Abrir um Servidor"
+size_flags_horizontal = 4
+text = "Assets - sunnyside world by danieldiggle (modified)"
 
-[node name="Client" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Conectar ao Servidor"
+size_flags_horizontal = 4
+text = "Sound Effects - ???"
 
-[node name="Credits" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Créditos"
+size_flags_horizontal = 4
+text = "Text Font - TheleahFat"
 
-[node name="Exit" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sair"
+size_flags_horizontal = 4
+text = "Music - ???"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Panel/Container/VBoxContainer/VBoxContainer"]
-position = Vector2(-451, -271)
+[node name="Back" type="Button" parent="Panel/Container/VBoxContainer"]
+layout_mode = 2
+text = "Voltar
+"
 
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Client" to="." method="_on_client_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-59.5, 6)
+
+[connection signal="pressed" from="Panel/Container/VBoxContainer/Back" to="." method="_on_back_pressed"]
