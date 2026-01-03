@@ -1823,7 +1823,7 @@ grow_vertical = 2
 script = ExtResource("1_qlr77")
 gameScene = ExtResource("2_3j6ch")
 CreditsScene = ExtResource("3_4ihmy")
-menuButtons = [NodePath("Main/Container/VBoxContainer/VBoxContainer/Tutorial"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Client"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Credits"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Exit")]
+menuButtons = [NodePath("Main/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Client"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Credits"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Exit")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3.5, 3.5)
@@ -1897,6 +1897,7 @@ alignment = 1
 
 [node name="Tutorial" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Tutorial"
 
 [node name="Host" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
