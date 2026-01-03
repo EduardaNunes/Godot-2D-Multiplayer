@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var camera = $Camera2D
-@onready var idle_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 # exported to sync
 @export var lifes : int = 3 
@@ -19,7 +18,6 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	set_camera_priority()
-	set_player_color()
 
 # ---------------------------------------------------------------------------- #
 
@@ -48,19 +46,6 @@ func set_camera_priority() -> void:
 		camera.enabled = false
 		
 # ---------------------------------------------------------------------------- #
-
-func set_player_color() -> void:
-	match(color):
-		'green':
-			idle_sprite.
-		'blue':
-			pass
-		'yellow':
-			pass
-		'red':
-			pass
-		_:
-			print('Erro ao definir cor para o jogador')
 
 func take_damage(damage: int) -> void:
 	

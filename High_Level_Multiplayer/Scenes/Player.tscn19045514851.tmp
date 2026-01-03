@@ -365,6 +365,7 @@ vframes = 5
 script = ExtResource("3_3rjae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_t3u3m")
 
@@ -386,10 +387,12 @@ texture_progress = ExtResource("7_tdr30")
 script = ExtResource("8_3rjae")
 
 [node name="MouseAim" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("7_3rjae")
 script = ExtResource("3_l4d4n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="EscMenu" parent="CanvasLayer" instance=ExtResource("5_u7kcs")]
 

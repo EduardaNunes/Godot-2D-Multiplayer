@@ -6,7 +6,7 @@ const MENU_SCENE_PATH : String = "res://High_Level_Multiplayer/Scenes/Menu.tscn"
 
 const IP_ADRESS: String = "localhost"
 const PORT: int = 42069
-const MAX_CLIENTS = 4 # Default = 32
+const MAX_CLIENTS = 3 # Default = 32
 
 var peer: ENetMultiplayerPeer
 
