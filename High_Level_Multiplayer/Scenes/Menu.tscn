@@ -1823,14 +1823,14 @@ grow_vertical = 2
 script = ExtResource("1_qlr77")
 gameScene = ExtResource("2_3j6ch")
 CreditsScene = ExtResource("3_4ihmy")
-menuButtons = [NodePath("Panel/Container/VBoxContainer/VBoxContainer/Tutorial"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Client"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Credits"), NodePath("Panel/Container/VBoxContainer/VBoxContainer/Exit")]
+menuButtons = [NodePath("Main/Container/VBoxContainer/VBoxContainer/Tutorial"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Host"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Client"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Credits"), NodePath("Main/Container/VBoxContainer/VBoxContainer/Exit")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3.5, 3.5)
 tile_map_data = PackedByteArray("AAAAAAAAAQABAC0AAAAAAAEAAQACACwAAAAAAAIAAQACACwAAAAAAAMAAQACACwAAAAAAAQAAQACACwAAAAAAAUAAQACAC8AAAAAAAYAAQACACwAAAAAAAcAAQACAC0AAAAAAAgAAQACACwAAAAAAAkAAQACAC8AAAAAAAoAAQACACwAAAAAAAsAAQACAC4AAAABAAAAAQABAC0AAAABAAEAAQACACwAAAABAAIAAQACACwAAAABAAMAAQACACwAAAABAAQAAQACAC8AAAABAAUAAQACACwAAAABAAYAAQABAC8AAAABAAcAAQACACwAAAABAAgAAQACACwAAAABAAkAAQACACwAAAABAAoAAQABAC0AAAABAAsAAQACAC4AAAACAAAAAQACACwAAAACAAEAAQABAC0AAAACAAIAAQACACwAAAACAAMAAQACACwAAAACAAQAAQABAC0AAAACAAUAAQACAC4AAAACAAYAAQACAC4AAAACAAcAAQACACwAAAACAAgAAQACAC8AAAACAAkAAQACACwAAAACAAoAAQACACwAAAACAAsAAQACACwAAAADAAAAAQABAC0AAAADAAEAAQACACwAAAADAAIAAQACACwAAAADAAMAAQACAC0AAAADAAQAAQACACwAAAADAAUAAQACACwAAAADAAYAAQACACwAAAADAAcAAQACACwAAAADAAgAAQACAC4AAAADAAkAAQACAC4AAAADAAoAAQACAC0AAAADAAsAAQACAC8AAAAEAAAAAQABAC8AAAAEAAEAAQABAC0AAAAEAAIAAQACACwAAAAEAAMAAQACAC4AAAAEAAQAAQACAC4AAAAEAAUAAQACACwAAAAEAAYAAQACACwAAAAEAAcAAQACACwAAAAEAAgAAQACAC8AAAAEAAkAAQACACwAAAAEAAoAAQACACwAAAAEAAsAAQABAC8AAAAFAAAAAQACAC0AAAAFAAEAAQACACwAAAAFAAIAAQACAC0AAAAFAAMAAQACAC8AAAAFAAQAAQABAC0AAAAFAAUAAQACACwAAAAFAAYAAQACACwAAAAFAAcAAQACACwAAAAFAAgAAQACAC4AAAAFAAkAAQACAC0AAAAFAAoAAQACACwAAAAFAAsAAQABAC0AAAAGAAAAAQACAC4AAAAGAAEAAQACACwAAAAGAAIAAQABAC0AAAAGAAMAAQACACwAAAAGAAQAAQABAC8AAAAGAAUAAQACACwAAAAGAAYAAQACACwAAAAGAAcAAQACACwAAAAGAAgAAQACAC0AAAAGAAkAAQACAC0AAAAGAAoAAQACACwAAAAGAAsAAQABAC0AAAAHAAAAAQACAC8AAAAHAAEAAQACACwAAAAHAAIAAQACACwAAAAHAAMAAQACAC8AAAAHAAQAAQACACwAAAAHAAUAAQACACwAAAAHAAYAAQACACwAAAAHAAcAAQACACwAAAAHAAgAAQABAC8AAAAHAAkAAQABAC8AAAAHAAoAAQACAC8AAAAHAAsAAQACAC0AAAAIAAAAAQACACwAAAAIAAEAAQACACwAAAAIAAIAAQABAC0AAAAIAAMAAQACAC4AAAAIAAQAAQACACwAAAAIAAUAAQACACwAAAAIAAYAAQACAC8AAAAIAAcAAQACACwAAAAIAAgAAQACAC4AAAAIAAkAAQABAC8AAAAIAAoAAQACAC4AAAAIAAsAAQABAC8AAAAJAAAAAQACAC8AAAAJAAEAAQACACwAAAAJAAIAAQACAC0AAAAJAAMAAQACACwAAAAJAAQAAQACACwAAAAJAAUAAQACACwAAAAJAAYAAQACAC8AAAAJAAcAAQACACwAAAAJAAgAAQACACwAAAAJAAkAAQACAC8AAAAJAAoAAQACAC8AAAAJAAsAAQACACwAAAAKAAAAAQACAC8AAAAKAAEAAQACACwAAAAKAAIAAQACACwAAAAKAAMAAQACACwAAAAKAAQAAQABAC8AAAAKAAUAAQACAC8AAAAKAAYAAQACACwAAAAKAAcAAQACACwAAAAKAAgAAQACACwAAAAKAAkAAQACACwAAAAKAAoAAQACAC8AAAAKAAsAAQACACwAAAALAAAAAQABAC8AAAALAAEAAQABAC8AAAALAAIAAQABAC8AAAALAAMAAQABAC8AAAALAAQAAQACACwAAAALAAUAAQACAC0AAAALAAYAAQABAC8AAAALAAcAAQACACwAAAALAAgAAQACACwAAAALAAkAAQACACwAAAALAAoAAQACACwAAAALAAsAAQACAC8AAAAMAAAAAQABAC8AAAAMAAEAAQABAC0AAAAMAAIAAQACACwAAAAMAAMAAQACACwAAAAMAAQAAQACAC4AAAAMAAUAAQABAC8AAAAMAAYAAQACAC8AAAAMAAcAAQACAC4AAAAMAAgAAQACACwAAAAMAAkAAQACACwAAAAMAAoAAQACACwAAAAMAAsAAQACAC0AAAANAAAAAQACACwAAAANAAEAAQABAC0AAAANAAIAAQACACwAAAANAAMAAQACACwAAAANAAQAAQACACwAAAANAAUAAQACAC0AAAANAAYAAQACAC8AAAANAAcAAQABAC0AAAANAAgAAQABAC0AAAANAAkAAQACACwAAAANAAoAAQACACwAAAANAAsAAQACAC8AAAAOAAAAAQACAC8AAAAOAAEAAQACACwAAAAOAAIAAQACACwAAAAOAAMAAQABAC0AAAAOAAQAAQACACwAAAAOAAUAAQACAC8AAAAOAAYAAQACACwAAAAOAAcAAQACACwAAAAOAAgAAQACACwAAAAOAAkAAQACACwAAAAOAAoAAQACAC8AAAAOAAsAAQACACwAAAAPAAAAAQACAC8AAAAPAAEAAQACACwAAAAPAAIAAQABAC8AAAAPAAMAAQACAC0AAAAPAAQAAQACACwAAAAPAAUAAQABAC8AAAAPAAYAAQABAC0AAAAPAAcAAQABAC8AAAAPAAgAAQACACwAAAAPAAkAAQACACwAAAAPAAoAAQACAC8AAAAPAAsAAQACAC8AAAAQAAAAAQACACwAAAAQAAEAAQABAC0AAAAQAAIAAQABAC8AAAAQAAMAAQACACwAAAAQAAQAAQACAC0AAAAQAAUAAQABAC8AAAAQAAYAAQACAC8AAAAQAAcAAQACACwAAAAQAAgAAQACACwAAAAQAAkAAQACACwAAAAQAAoAAQACAC8AAAAQAAsAAQACAC4AAAARAAAAAQACACwAAAARAAEAAQACACwAAAARAAIAAQACACwAAAARAAMAAQACAC0AAAARAAQAAQABAC8AAAARAAUAAQACAC4AAAARAAYAAQACACwAAAARAAcAAQACACwAAAARAAgAAQABAC0AAAARAAkAAQACACwAAAARAAoAAQABAC8AAAARAAsAAQACAC8AAAASAAAAAQACACwAAAASAAEAAQACAC0AAAASAAIAAQACACwAAAASAAMAAQACACwAAAASAAQAAQACACwAAAASAAUAAQACAC4AAAASAAYAAQACACwAAAASAAcAAQACACwAAAASAAgAAQACACwAAAASAAkAAQACACwAAAASAAoAAQACACwAAAASAAsAAQACAC0AAAATAAAAAQACACwAAAATAAEAAQACAC4AAAATAAIAAQACAC8AAAATAAMAAQACAC8AAAATAAQAAQACACwAAAATAAUAAQACACwAAAATAAYAAQACACwAAAATAAcAAQABAC0AAAATAAgAAQABAC8AAAATAAkAAQACAC0AAAATAAoAAQACAC4AAAATAAsAAQACACwAAAAUAAAAAQACAC8AAAAUAAEAAQACAC4AAAAUAAIAAQACACwAAAAUAAMAAQACAC4AAAAUAAQAAQACAC8AAAAUAAUAAQACAC0AAAAUAAYAAQACACwAAAAUAAcAAQACAC0AAAAUAAgAAQABAC8AAAAUAAkAAQACAC4AAAAUAAoAAQABAC8AAAAUAAsAAQACAC8AAAA=")
 tile_set = SubResource("TileSet_nsya4")
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1839,7 +1839,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Main" type="Panel" parent="."]
 self_modulate = Color(0, 0, 0, 0.78431374)
 texture_filter = 1
 layout_mode = 1
@@ -1856,7 +1856,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3jcrr")
 
-[node name="Container" type="BoxContainer" parent="Panel"]
+[node name="Container" type="BoxContainer" parent="Main"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -1868,16 +1868,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/Container/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/Container/VBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer2"]
+[node name="Title" type="Label" parent="Main/Container/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_3j6ch")
@@ -1886,40 +1886,106 @@ text = "Snow Battle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer2"]
+[node name="Subtitle" type="Label" parent="Main/Container/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Um jogo multiplayer"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Container/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Container/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Tutorial" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Tutorial"
 
-[node name="Host" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Host" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Abrir um Servidor"
 
-[node name="Client" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Client" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Conectar ao Servidor"
 
-[node name="Credits" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Créditos"
 
-[node name="Exit" type="Button" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="Main/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sair"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Panel/Container/VBoxContainer/VBoxContainer"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Main/Container/VBoxContainer/VBoxContainer"]
 position = Vector2(-451, -271)
 
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Client" to="." method="_on_client_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Error" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3jcrr")
+
+[node name="Container" type="BoxContainer" parent="Error"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.5
+offset_right = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Error/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Error/Container/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Error/Container/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_3j6ch")
+theme_override_font_sizes/font_size = 50
+text = "Error"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Error/Container/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Informações sobre o erro aqui"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Error/Container/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Ok" type="Button" parent="Error/Container/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ok
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Error/Container/VBoxContainer/VBoxContainer"]
+position = Vector2(-451, -271)
+
+[connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Client" to="." method="_on_client_pressed"]
+[connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Error/Container/VBoxContainer/VBoxContainer/Ok" to="." method="_on_error_ok_pressed"]

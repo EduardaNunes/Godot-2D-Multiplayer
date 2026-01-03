@@ -19,7 +19,6 @@ func set_tilemap():
 	
 	if maps.size() > 0:
 		tilemap = maps[0]
-		print('O mapa "', tilemap.name ,'" foi encontrado no grupo "camera_limits"')
 		
 	else:
 		print('Nenhum mapa encontrado no grupo "camera_limits"')
