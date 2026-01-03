@@ -5,7 +5,7 @@ signal connection_notification(sucess)
 
 const MENU_SCENE_PATH : String = "res://High_Level_Multiplayer/Scenes/Menu.tscn"
 
-const IP_ADRESS: String = "localhost"
+var IP_ADRESS: String = "localhost"
 const PORT: int = 42069
 const MAX_CLIENTS = 3 # Default = 32
 
@@ -32,10 +32,18 @@ func start_server() -> bool:
 	
 # ---------------------------------------------------------------------------- #
 
-func start_client() -> void:
+func start_client(server_ip: String = "") -> void:
+	
+	if server_ip != "": IP_ADRESS = server_ip
+	
+	if IP_ADRESS != "localhost" and !IP_ADRESS.is_valid_ip_address():
+		connection_notification.emit(false, 'Erro ao conectar: ip inserido não é válido')
+		return
+	
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(IP_ADRESS, PORT)
 	multiplayer.multiplayer_peer = peer
+	
 	connection_timer.start()
 
 # ---------------------------------------------------------------------------- #
@@ -50,8 +58,7 @@ func on_server_disconnected() -> void:
 func _on_connected_ok():
 	connection_timer.stop()
 	
-	print("Conectado com sucesso!")
-	connection_notification.emit(true)
+	connection_notification.emit(true, 'sucesso')
 
 # ---------------------------------------------------------------------------- #
 
@@ -62,9 +69,8 @@ func _on_connected_fail():
 # ---------------------------------------------------------------------------- #
 
 func _abort_connection():
-	print("Falha na conexão: tempo esgotado, servidor cheio ou offline")
 	multiplayer.multiplayer_peer = null
-	connection_notification.emit(false)
+	connection_notification.emit(false, 'Erro ao conectar: tempo esgotado, servidor cheio ou offline')
 
 # ---------------------------------------------------------------------------- #
 

@@ -10,11 +10,15 @@ extends Control
 @onready var errorPanel : Panel = $Error
 @onready var errorLabel : Label = $Error/Container/VBoxContainer/VBoxContainer2/Subtitle
 
+@onready var inputIPPanel : Panel = $Input_IP
+@onready var inputIP : LineEdit = $Input_IP/Container/VBoxContainer/LineEdit
+
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
 	toggle_buttons('enable')
 	errorPanel.visible = false
+	inputIPPanel.visible = false
 	
 	HighLevelNetworkHandler.connection_notification.connect(connect_client)
 
@@ -34,13 +38,16 @@ func _on_host_pressed() -> void:
 
 func _on_client_pressed() -> void:
 	toggle_buttons('disable')
-	HighLevelNetworkHandler.start_client()
+	toggle_input_ip_panel()
 	
-func connect_client(sucess) -> void:
+func _on_input_ip_ok_pressed() -> void:
+	HighLevelNetworkHandler.start_client(inputIP.text)
+	toggle_input_ip_panel()
+	
+func connect_client(sucess : bool, message : String) -> void:
 	if sucess: get_tree().change_scene_to_packed(gameScene)
 	else:
-		print('else')
-		errorLabel.text = 'Erro ao conectar: servidor cheio ou offline'
+		errorLabel.text = message
 		toggle_error_panel()
 
 # ---------------------------------------------------------------------------- #
@@ -79,11 +86,13 @@ func toggle_buttons(operation) -> void:
 # ---------------------------------------------------------------------------- #
 
 func toggle_error_panel() -> void:
-	print(errorPanel.is_visible_in_tree())
 	errorPanel.visible = !errorPanel.is_visible_in_tree()
 	
 	if(!errorPanel.is_visible_in_tree()): toggle_buttons('enable')
 	else: toggle_buttons('disable')
+	
+func toggle_input_ip_panel() -> void:
+	inputIPPanel.visible = !inputIPPanel.is_visible_in_tree()
 
 # ---------------------------------------------------------------------------- #
 
