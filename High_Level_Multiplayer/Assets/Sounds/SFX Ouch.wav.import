@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1pvdq3dvbwp0"
+path="res://.godot/imported/SFX Ouch.wav-282ed52f9b1f24e3b8d80a83fc82ecfa.sample"
+
+[deps]
+
+source_file="res://High_Level_Multiplayer/Assets/Sounds/SFX Ouch.wav"
+dest_files=["res://.godot/imported/SFX Ouch.wav-282ed52f9b1f24e3b8d80a83fc82ecfa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

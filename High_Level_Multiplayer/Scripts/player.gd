@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-signal shooted
 @onready var camera = $Camera2D
+@onready var idle_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 # exported to sync
 @export var lifes : int = 3 
+var color : String
 signal took_damage(new_lifes)
 
 const speed : float = 100.0
@@ -17,7 +18,8 @@ func _enter_tree() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
-	setCameraPriority()
+	set_camera_priority()
+	set_player_color()
 
 # ---------------------------------------------------------------------------- #
 
@@ -38,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 # ---------------------------------------------------------------------------- #
 
-func setCameraPriority() -> void:
+func set_camera_priority() -> void:
 	if is_multiplayer_authority():
 		camera.enabled = true
 		camera.make_current()
@@ -46,6 +48,19 @@ func setCameraPriority() -> void:
 		camera.enabled = false
 		
 # ---------------------------------------------------------------------------- #
+
+func set_player_color() -> void:
+	match(color):
+		'green':
+			idle_sprite.
+		'blue':
+			pass
+		'yellow':
+			pass
+		'red':
+			pass
+		_:
+			print('Erro ao definir cor para o jogador')
 
 func take_damage(damage: int) -> void:
 	
