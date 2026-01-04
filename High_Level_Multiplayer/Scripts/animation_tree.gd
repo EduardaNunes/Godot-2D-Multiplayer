@@ -19,9 +19,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	var idle = !player.velocity.is_zero_approx() # avoids residual values by multiplayer connection
-	
-	if !idle : last_facing_direction = sign(player.velocity.x)
+	var idle = player.velocity.is_zero_approx() # avoids residual values by multiplayer connection
+
+	if !idle : last_facing_direction = player.velocity.x
 
 	set("parameters/Idle/blend_position", last_facing_direction)
 	set("parameters/Run/blend_position", last_facing_direction)
