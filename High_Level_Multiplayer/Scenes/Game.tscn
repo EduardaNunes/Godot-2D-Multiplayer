@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bem2m8yse6bfl"]
+[gd_scene load_steps=18 format=4 uid="uid://bem2m8yse6bfl"]
 
 [ext_resource type="Script" uid="uid://davvvokk5bcwh" path="res://High_Level_Multiplayer/Scripts/game.gd" id="1_ce125"]
 [ext_resource type="Script" uid="uid://bx7b5hhxs153p" path="res://High_Level_Multiplayer/Scripts/player_spawner.gd" id="2_4a7kj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b5wttodpw2vdn" path="res://High_Level_Multiplayer/Scripts/snowball_spawner.gd" id="5_i0cfy"]
 [ext_resource type="PackedScene" uid="uid://b0f0o3l4rbl1n" path="res://High_Level_Multiplayer/Scenes/Snowball.tscn" id="6_ce125"]
 [ext_resource type="Script" uid="uid://csa6ndy1b8xxu" path="res://High_Level_Multiplayer/Scripts/server_ip_label.gd" id="8_gqw17"]
+[ext_resource type="PackedScene" uid="uid://dkonumsfg3hbq" path="res://High_Level_Multiplayer/Scenes/Shaders.tscn" id="9_830jp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5m4dx"]
 texture = ExtResource("3_fvlj0")
@@ -3703,3 +3704,5 @@ script = ExtResource("8_gqw17")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_gqw17")
+
+[node name="Shaders" parent="." instance=ExtResource("9_830jp")]
