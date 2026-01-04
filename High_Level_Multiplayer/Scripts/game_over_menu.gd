@@ -1,23 +1,16 @@
+# ---------------------------------------------------------------------------- #
+
 extends Control
 
-#@export var menuScene : PackedScene
 @onready var audioPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var winner_label : Label = $Panel/Container/VBoxContainer/VBoxContainer2/Winner_Label
 
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
 	self.visible = false
-	
-# ---------------------------------------------------------------------------- #
-	
-func _process(delta: float) -> void:
-	
-	if not multiplayer.has_multiplayer_peer(): return
-	if not is_multiplayer_authority(): return
-	
-	if Input.is_action_just_pressed('esc'):
-		self.visible = !self.is_visible_in_tree()
-		
+	HighLevelNetworkHandler.game_over.connect(show_gameover_menu)
+
 # ---------------------------------------------------------------------------- #
 
 func _on_exit_pressed() -> void:
@@ -29,10 +22,8 @@ func _on_exit_pressed() -> void:
 
 # ---------------------------------------------------------------------------- #
 
-func _on_cancel_pressed() -> void:
-	audioPlayer.play()
-	await audioPlayer.finished
+func show_gameover_menu(winner_color) -> void:
+	winner_label.text = str('O jogador ', winner_color, ' ganhou!')
+	self.visible = true
 	
-	self.visible = false
-
 # ---------------------------------------------------------------------------- #

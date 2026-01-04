@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://lsvkqwnmxgdq"]
+[gd_scene load_steps=48 format=3 uid="uid://lsvkqwnmxgdq"]
 
 [ext_resource type="Script" uid="uid://bqkcwa5hcg8r5" path="res://High_Level_Multiplayer/Scripts/player.gd" id="1_t3u3m"]
 [ext_resource type="Texture2D" uid="uid://btfrgauwaghwj" path="res://High_Level_Multiplayer/Assets/Sprites/players/spritesheet_green.png" id="2_tdr30"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0u6c2sgqtx3e" path="res://High_Level_Multiplayer/Assets/Sprites/lifes_filler.png" id="7_tdr30"]
 [ext_resource type="Script" uid="uid://dde6orjayt5re" path="res://High_Level_Multiplayer/Scripts/lifes_bar.gd" id="8_3rjae"]
 [ext_resource type="AnimationNodeBlendSpace1D" uid="uid://dkg8eoodmf4f5" path="res://High_Level_Multiplayer/Scenes/Animations/run_blend.tres" id="11_3gyhi"]
+[ext_resource type="PackedScene" uid="uid://ckw4wnuu150d5" path="res://High_Level_Multiplayer/Scenes/GameOver_Menu.tscn" id="11_jkvj3"]
 [ext_resource type="Script" uid="uid://dkqoptg3a18en" path="res://High_Level_Multiplayer/Scripts/animation_tree.gd" id="11_l4d4n"]
 [ext_resource type="AudioStream" uid="uid://bptthohohar6u" path="res://High_Level_Multiplayer/Assets/Sounds/hit04.wav" id="13_qqgt8"]
 [ext_resource type="Script" uid="uid://b2wndihwiaux0" path="res://High_Level_Multiplayer/Scripts/player_stream_sounds.gd" id="14_jkvj3"]
@@ -484,6 +485,8 @@ script = ExtResource("3_l4d4n")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EscMenu" parent="CanvasLayer" instance=ExtResource("5_u7kcs")]
+
+[node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource("11_jkvj3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
