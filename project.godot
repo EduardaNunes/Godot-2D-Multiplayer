@@ -18,6 +18,7 @@ config/icon="res://High_Level_Multiplayer/Assets/Sprites/icon.svg"
 [autoload]
 
 HighLevelNetworkHandler="*res://High_Level_Multiplayer/Scripts/high_level_network_handler.gd"
+BackgroundMusic="*res://High_Level_Multiplayer/Scenes/Background_Music.tscn"
 
 [global_group]
 
