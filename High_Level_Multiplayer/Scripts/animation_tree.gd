@@ -3,6 +3,7 @@
 extends AnimationTree
 
 @onready var player : CharacterBody2D = $".."
+@onready var player_collision : CollisionShape2D = $"../CollisionShape2D"
 
 var state_machine : AnimationNodeStateMachinePlayback
 var last_facing_direction : int = -1
@@ -11,10 +12,11 @@ var last_facing_direction : int = -1
 
 func _ready() -> void:
 	state_machine = get("parameters/playback")
+	state_machine.state_finished.connect(enable_player_movement)
 	
 	player.took_damage.connect(play_hurt_animation)
 	player.player_died.connect(play_death_animation)
-
+	
 # ---------------------------------------------------------------------------- #
 
 func _physics_process(delta: float) -> void:
@@ -32,11 +34,14 @@ func _physics_process(delta: float) -> void:
 # ---------------------------------------------------------------------------- #
 
 func play_trow_animation():
+	player.set_physics_process(false)
 	state_machine.travel("Trow")
 	
 # ---------------------------------------------------------------------------- #
 
 func play_hurt_animation(_new_lifes):
+	player.set_physics_process(false)
+	player_collision.set_deferred("disabled", true)
 	state_machine.travel("Hurt")
 	
 # ---------------------------------------------------------------------------- #
@@ -45,3 +50,8 @@ func play_death_animation():
 	state_machine.travel("Death")
 
 # ---------------------------------------------------------------------------- #
+
+func enable_player_movement(state):
+	if state == "Trow" or state == "Hurt": 
+		player.set_physics_process(true)
+		player_collision.set_deferred("disabled", false)

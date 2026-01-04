@@ -21,8 +21,8 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	
-	# Handle by Server
 	if not multiplayer.is_server(): return
+	
 	# Ignores the shooter
 	if body.name == str(shooter_id): return
 	

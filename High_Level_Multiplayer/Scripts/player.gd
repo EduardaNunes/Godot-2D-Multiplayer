@@ -75,10 +75,8 @@ func update_lifes(new_value):
 # ---------------------------------------------------------------------------- #
 
 func die() -> void:
-	print('Jogador "', self.name, '" morreu.')
 	set_physics_process(false)
 	collision.set_deferred("disabled", true)
 	player_died.emit()
 	
 # ---------------------------------------------------------------------------- #
-	
