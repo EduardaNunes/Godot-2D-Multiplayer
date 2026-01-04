@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhubdu51muclo"]
 
-[ext_resource type="Script" uid="uid://b6a1n7qxmtdrg" path="res://High_Level_Multiplayer/Scenes/background_music.gd" id="1_mjnwq"]
+[ext_resource type="Script" uid="uid://b6a1n7qxmtdrg" path="res://High_Level_Multiplayer/Scripts/background_music.gd" id="1_mjnwq"]
 [ext_resource type="AudioStream" uid="uid://2hi2u275va3r" path="res://High_Level_Multiplayer/Assets/Songs/Admin_Rights_-_Full_KLICKAUD.mp3" id="2_o8sya"]
 
 [node name="BackgroundMusic" type="Node"]

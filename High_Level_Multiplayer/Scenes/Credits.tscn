@@ -1900,17 +1900,17 @@ text = "Assets - sunnyside world by danieldiggle (modified)"
 [node name="Label3" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Sound Effects - ???"
+text = "Sound Effects - Retro Sounds 32-Bit by BrainzPlayz"
 
 [node name="Label4" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Text Font - TheleahFat"
+text = "Text Font - Thaleah Fat by Tiny Worlds"
 
 [node name="Label5" type="Label" parent="Panel/Container/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Music - ???"
+text = "Music - 8 bit gameboy songs V1 by TipTopTomCat"
 
 [node name="Back" type="Button" parent="Panel/Container/VBoxContainer"]
 layout_mode = 2
