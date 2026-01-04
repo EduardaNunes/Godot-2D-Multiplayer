@@ -1,6 +1,7 @@
 extends Control
 
 @export var buttons : Array[Button]
+@onready var audioPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # ---------------------------------------------------------------------------- #
 
@@ -10,7 +11,10 @@ func _ready() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_back_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
 	toggle_buttons('disable')
+	
 	get_tree().change_scene_to_file(HighLevelNetworkHandler.MENU_SCENE_PATH)
 	
 # ---------------------------------------------------------------------------- #

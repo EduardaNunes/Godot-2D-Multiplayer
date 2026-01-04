@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://12e5jjb14p1n"]
+[gd_scene load_steps=6 format=3 uid="uid://12e5jjb14p1n"]
 
 [ext_resource type="Script" uid="uid://mgj5c1a7ay6r" path="res://High_Level_Multiplayer/Scripts/esc_menu.gd" id="1_f3b3w"]
 [ext_resource type="Texture2D" uid="uid://kkh8fi3mbhwo" path="res://High_Level_Multiplayer/Assets/Sprites/white_block.png" id="2_h1d53"]
 [ext_resource type="FontFile" uid="uid://brgd3gf6diskh" path="res://High_Level_Multiplayer/Assets/Fonts/ThaleahFat.ttf" id="3_7ji0d"]
+[ext_resource type="AudioStream" uid="uid://d2bhuw8rnkhwk" path="res://High_Level_Multiplayer/Assets/Sounds/jump05.wav" id="4_h1d53"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nxv2"]
 texture = ExtResource("2_h1d53")
@@ -84,8 +85,10 @@ text = "Sim"
 layout_mode = 2
 text = "Não"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Panel/Container/VBoxContainer/VBoxContainer"]
-position = Vector2(-451, -271)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-59.5, 74)
+stream = ExtResource("4_h1d53")
+volume_db = 10.0
 
 [connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Panel/Container/VBoxContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

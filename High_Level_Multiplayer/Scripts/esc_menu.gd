@@ -1,6 +1,7 @@
 extends Control
 
 #@export var menuScene : PackedScene
+@onready var audioPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # ---------------------------------------------------------------------------- #
 
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_exit_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
+	
 	multiplayer.multiplayer_peer = null
 	#get_tree().change_scene_to_packed(menuScene)
 	get_tree().change_scene_to_file(HighLevelNetworkHandler.MENU_SCENE_PATH)
@@ -27,6 +31,9 @@ func _on_exit_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_cancel_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
+	
 	self.visible = false
 
 # ---------------------------------------------------------------------------- #

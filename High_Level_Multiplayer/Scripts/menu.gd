@@ -9,6 +9,7 @@ extends Control
 
 @onready var errorPanel : Panel = $Error
 @onready var errorLabel : Label = $Error/Container/VBoxContainer/VBoxContainer2/Subtitle
+@onready var audioPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var inputIPPanel : Panel = $Input_IP
 @onready var inputIP : LineEdit = $Input_IP/Container/VBoxContainer/LineEdit
@@ -26,6 +27,9 @@ func _ready() -> void:
 
 func _on_host_pressed() -> void:
 	toggle_buttons('disable')
+	audioPlayer.play()
+	await audioPlayer.finished
+	
 	var sucess = HighLevelNetworkHandler.start_server()
 	
 	if sucess:
@@ -37,10 +41,15 @@ func _on_host_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_client_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
 	toggle_buttons('disable')
 	toggle_input_ip_panel()
 	
 func _on_input_ip_ok_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
+	
 	HighLevelNetworkHandler.start_client(inputIP.text)
 	toggle_input_ip_panel()
 	
@@ -53,19 +62,28 @@ func connect_client(sucess : bool, message : String) -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_tutorial_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
 	toggle_buttons('disable')
+	
 	get_tree().change_scene_to_packed(tutorialScene)
 
 # ---------------------------------------------------------------------------- #
 
 func _on_credits_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
 	toggle_buttons('disable')
+	
 	get_tree().change_scene_to_packed(CreditsScene)
 
 # ---------------------------------------------------------------------------- #
 
 func _on_exit_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
 	toggle_buttons('disable')
+	
 	get_tree().quit()
 	
 # ---------------------------------------------------------------------------- #
@@ -97,6 +115,9 @@ func toggle_input_ip_panel() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_error_ok_pressed() -> void:
+	audioPlayer.play()
+	await audioPlayer.finished
+	
 	errorLabel.text = 'Um erro aconteceu'
 	toggle_error_panel()
 

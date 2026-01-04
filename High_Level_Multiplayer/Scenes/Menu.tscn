@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b81ktx1s238fg"]
+[gd_scene load_steps=14 format=4 uid="uid://b81ktx1s238fg"]
 
 [ext_resource type="Script" uid="uid://xtmx05cmf1js" path="res://High_Level_Multiplayer/Scripts/menu.gd" id="1_qlr77"]
 [ext_resource type="PackedScene" uid="uid://bem2m8yse6bfl" path="res://High_Level_Multiplayer/Scenes/Game.tscn" id="2_3j6ch"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="3_158ef"]
 [ext_resource type="Texture2D" uid="uid://bn5a5lfy5ucdh" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px_winter_edition.png" id="4_4ihmy"]
 [ext_resource type="PackedScene" uid="uid://dkonumsfg3hbq" path="res://High_Level_Multiplayer/Scenes/Shaders.tscn" id="8_7mncx"]
+[ext_resource type="AudioStream" uid="uid://d2bhuw8rnkhwk" path="res://High_Level_Multiplayer/Assets/Sounds/jump05.wav" id="9_wvbt5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mncx"]
 texture = ExtResource("3_158ef")
@@ -2051,6 +2052,8 @@ text = "Ok
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-59.5, 74)
+stream = ExtResource("9_wvbt5")
+volume_db = 10.0
 
 [connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]

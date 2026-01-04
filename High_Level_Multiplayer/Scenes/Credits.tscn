@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cg1pbh1isv2f1"]
+[gd_scene load_steps=12 format=4 uid="uid://cg1pbh1isv2f1"]
 
 [ext_resource type="Script" uid="uid://bfwqukmvrsx8m" path="res://High_Level_Multiplayer/Scripts/credits.gd" id="1_dr178"]
 [ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_luaiw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kkh8fi3mbhwo" path="res://High_Level_Multiplayer/Assets/Sprites/white_block.png" id="4_oyqm0"]
 [ext_resource type="FontFile" uid="uid://brgd3gf6diskh" path="res://High_Level_Multiplayer/Assets/Fonts/ThaleahFat.ttf" id="5_b20xe"]
 [ext_resource type="PackedScene" uid="uid://dkonumsfg3hbq" path="res://High_Level_Multiplayer/Scenes/Shaders.tscn" id="6_luaiw"]
+[ext_resource type="AudioStream" uid="uid://d2bhuw8rnkhwk" path="res://High_Level_Multiplayer/Assets/Sounds/jump05.wav" id="7_x5suk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ypdf"]
 texture = ExtResource("2_luaiw")
@@ -1918,9 +1919,11 @@ layout_mode = 2
 text = "Voltar
 "
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-59.5, 6)
-
 [node name="Shaders" parent="." instance=ExtResource("6_luaiw")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-59.5, 74)
+stream = ExtResource("7_x5suk")
+volume_db = 10.0
 
 [connection signal="pressed" from="Panel/Container/VBoxContainer/Back" to="." method="_on_back_pressed"]
