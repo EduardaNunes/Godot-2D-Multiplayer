@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://lsvkqwnmxgdq"]
+[gd_scene load_steps=47 format=3 uid="uid://lsvkqwnmxgdq"]
 
 [ext_resource type="Script" uid="uid://bqkcwa5hcg8r5" path="res://High_Level_Multiplayer/Scripts/player.gd" id="1_t3u3m"]
 [ext_resource type="Texture2D" uid="uid://btfrgauwaghwj" path="res://High_Level_Multiplayer/Assets/Sprites/players/spritesheet_green.png" id="2_tdr30"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://dde6orjayt5re" path="res://High_Level_Multiplayer/Scripts/lifes_bar.gd" id="8_3rjae"]
 [ext_resource type="AnimationNodeBlendSpace1D" uid="uid://dkg8eoodmf4f5" path="res://High_Level_Multiplayer/Scenes/Animations/run_blend.tres" id="11_3gyhi"]
 [ext_resource type="Script" uid="uid://dkqoptg3a18en" path="res://High_Level_Multiplayer/Scripts/animation_tree.gd" id="11_l4d4n"]
+[ext_resource type="AudioStream" uid="uid://bptthohohar6u" path="res://High_Level_Multiplayer/Assets/Sounds/hit04.wav" id="13_qqgt8"]
+[ext_resource type="Script" uid="uid://b2wndihwiaux0" path="res://High_Level_Multiplayer/Scripts/player_stream_sounds.gd" id="14_jkvj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3u3m"]
 size = Vector2(9, 15)
@@ -498,3 +500,8 @@ parameters/Idle/blend_position = 0.0
 parameters/Run/blend_position = 0.0
 parameters/Trow/blend_position = 0.0
 script = ExtResource("11_l4d4n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_qqgt8")
+volume_db = 10.0
+script = ExtResource("14_jkvj3")
