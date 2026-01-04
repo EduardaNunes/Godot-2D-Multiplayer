@@ -1,6 +1,7 @@
 extends MultiplayerSpawner
 
 @export var snowball_scene : PackedScene
+@onready var game_controller : Node2D = $"../.."
 
 # ---------------------------------------------------------------------------- #
 
@@ -25,6 +26,9 @@ func trow(data):
 # ---------------------------------------------------------------------------- #
 
 func handle_trow(player_position, aim_rotation, player_id):
+	
+	if not game_controller.game_started: return
+	
 	if multiplayer.is_server():
 		var data = {
 			"position": player_position,

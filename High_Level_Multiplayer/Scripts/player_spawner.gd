@@ -1,6 +1,7 @@
 extends MultiplayerSpawner
 
 @export var playerScene : PackedScene
+@onready var game_controller : Node2D = $".."
 
 var spawned_players : int = 0
 var colors = ['green', 'blue', 'yellow', 'red']
@@ -36,6 +37,9 @@ func spawn_player(data):
 	player.name = str(data.id)
 	player.set_multiplayer_authority(data.id)
 	
+	if multiplayer.is_server():
+		game_controller.register_player.call_deferred(player)
+	
 	# When we return the object the spawn_function adds it to the node parent (spawn path)
 	return player 
 	
@@ -45,6 +49,8 @@ func remove_player(id):
 	if get_node(spawn_path).has_node(str(id)):
 		get_node(spawn_path).get_node(str(id)).queue_free()
 	
-	if multiplayer.is_server(): spawned_players -= 1
+	if multiplayer.is_server(): 
+		spawned_players -= 1
+		game_controller.unregister_player(id)
 		
 # ---------------------------------------------------------------------------- #
