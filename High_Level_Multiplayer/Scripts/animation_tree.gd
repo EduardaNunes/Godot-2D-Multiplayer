@@ -14,6 +14,7 @@ func _ready() -> void:
 	state_machine = get("parameters/playback")
 	state_machine.state_finished.connect(enable_player_movement)
 	
+	HighLevelNetworkHandler.player_trow_snowball.connect(func(a,b,id): play_trow_animation(id))
 	player.took_damage.connect(play_hurt_animation)
 	player.player_died.connect(play_death_animation)
 	
@@ -33,7 +34,9 @@ func _physics_process(delta: float) -> void:
 	
 # ---------------------------------------------------------------------------- #
 
-func play_trow_animation():
+func play_trow_animation(id):
+	if player.name != id: return
+	
 	player.set_physics_process(false)
 	state_machine.travel("Trow")
 	
@@ -52,6 +55,9 @@ func play_death_animation():
 # ---------------------------------------------------------------------------- #
 
 func enable_player_movement(state):
+	
+	if player.lifes <= 0: return
+	
 	if state == "Trow" or state == "Hurt": 
 		player.set_physics_process(true)
 		player_collision.set_deferred("disabled", false)

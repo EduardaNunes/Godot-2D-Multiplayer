@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var camera : Camera2D = $Camera2D
 @onready var collision : CollisionShape2D = $CollisionShape2D
+@onready var game_controller : Node2D = self.get_parent()
 
 # exported to sync
 @export var lifes : int = 3 
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		
 		# player trowing snowballss
 		if Input.is_action_just_pressed("shoot"):
+			if not game_controller.game_started: return
 			HighLevelNetworkHandler.player_trow_snowball.emit(global_position, $MouseAim.global_rotation, name)
 	else:
 		velocity = sync_velocity
