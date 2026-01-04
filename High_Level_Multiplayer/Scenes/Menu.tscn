@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b81ktx1s238fg"]
+[gd_scene load_steps=14 format=4 uid="uid://b81ktx1s238fg"]
 
 [ext_resource type="Script" uid="uid://xtmx05cmf1js" path="res://High_Level_Multiplayer/Scripts/menu.gd" id="1_qlr77"]
 [ext_resource type="PackedScene" uid="uid://bem2m8yse6bfl" path="res://High_Level_Multiplayer/Scenes/Game.tscn" id="2_3j6ch"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg1pbh1isv2f1" path="res://High_Level_Multiplayer/Scenes/Credits.tscn" id="3_4ihmy"]
 [ext_resource type="Texture2D" uid="uid://rot5773rb54" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="3_158ef"]
 [ext_resource type="Texture2D" uid="uid://bn5a5lfy5ucdh" path="res://High_Level_Multiplayer/Assets/Tileset/spr_tileset_sunnysideworld_16px_winter_edition.png" id="4_4ihmy"]
+[ext_resource type="Shader" uid="uid://cd6b1qpts5lo8" path="res://High_Level_Multiplayer/Shaders/Snow_Shader.gdshader" id="8_7mncx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mncx"]
 texture = ExtResource("3_158ef")
@@ -1813,6 +1814,16 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvbt5"]
+shader = ExtResource("8_7mncx")
+shader_parameter/spread = 0.5
+shader_parameter/size = 5.0
+shader_parameter/snow_color = Color(1, 1, 1, 1)
+shader_parameter/snow_transparency = 0.6830000561925
+shader_parameter/speed = 0.5
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 100
+
 [node name="Menu" type="Control" node_paths=PackedStringArray("menuButtons")]
 layout_mode = 3
 anchors_preset = 15
@@ -2048,6 +2059,18 @@ text = "Ok
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-59.5, 74)
+
+[node name="Shaders" type="CanvasLayer" parent="."]
+physics_interpolation_mode = 2
+
+[node name="Snowing" type="ColorRect" parent="Shaders"]
+material = SubResource("ShaderMaterial_wvbt5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Main/Container/VBoxContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
