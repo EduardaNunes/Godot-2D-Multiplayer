@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
-@onready var camera = $Camera2D
+@onready var camera : Camera2D = $Camera2D
+@onready var collision : CollisionShape2D = $CollisionShape2D
 
 # exported to sync
 @export var lifes : int = 3 
-var color : String
+@export var sync_velocity : Vector2 = Vector2.ZERO
+
 signal took_damage(new_lifes)
+signal player_died()
 
 const speed : float = 100.0
+var color : String
 
 # ---------------------------------------------------------------------------- #
 
@@ -31,10 +35,14 @@ func _physics_process(delta: float) -> void:
 		# player movement
 		velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
 		move_and_slide()
+		sync_velocity = velocity
 		
-		# player trowing snowballs
+		# player trowing snowballss
 		if Input.is_action_just_pressed("shoot"):
 			HighLevelNetworkHandler.player_trow_snowball.emit(global_position, $MouseAim.global_rotation, name)
+	else:
+		velocity = sync_velocity
+		move_and_slide()
 
 # ---------------------------------------------------------------------------- #
 
@@ -62,12 +70,15 @@ func update_lifes(new_value):
 	lifes = new_value
 	took_damage.emit(lifes)
 	
-	if lifes <= 0 and multiplayer.is_server(): die()
+	if lifes <= 0: die()
 		
 # ---------------------------------------------------------------------------- #
 
 func die() -> void:
 	print('Jogador "', self.name, '" morreu.')
+	set_physics_process(false)
+	collision.set_deferred("disabled", true)
+	player_died.emit()
 	
 # ---------------------------------------------------------------------------- #
 	
