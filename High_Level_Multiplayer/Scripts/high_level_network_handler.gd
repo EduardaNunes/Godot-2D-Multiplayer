@@ -1,7 +1,7 @@
 extends Node
 
 signal player_trow_snowball(position, rotation, id)
-signal game_over(winner_color)
+signal game_over(winner_data)
 signal connection_notification(sucess)
 
 const MENU_SCENE_PATH : String = "res://High_Level_Multiplayer/Scenes/Menu.tscn"

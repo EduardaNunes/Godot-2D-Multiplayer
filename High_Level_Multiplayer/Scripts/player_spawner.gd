@@ -3,7 +3,7 @@ extends MultiplayerSpawner
 @export var playerScene : PackedScene
 @onready var game_controller : Node2D = $".."
 
-var spawned_players : int = 0
+var spawned_players : Array[bool] = [false, false, false, false]
 var colors = ['green', 'blue', 'yellow', 'red']
 
 # ---------------------------------------------------------------------------- #
@@ -22,12 +22,14 @@ func _ready() -> void:
 
 func handle_spawn_data(id):
 	
-	var color = colors[spawned_players]
-	
-	var data = {"id": id, "color": color}
-	
-	spawn.call_deferred(data)
-	spawned_players += 1
+	for i in spawned_players.size():
+		if not spawned_players[i]:
+			var player_data = {"id": id, "color": colors[i]}
+			spawn.call_deferred(player_data)
+			spawned_players[i] = true
+			return
+			
+	print('Não há vagas disponíveis para mais um jogador')
 
 func spawn_player(data):
 	
@@ -46,11 +48,16 @@ func spawn_player(data):
 # ---------------------------------------------------------------------------- #
 
 func remove_player(id):
+	
+	var player_color = '';
+	
 	if get_node(spawn_path).has_node(str(id)):
-		get_node(spawn_path).get_node(str(id)).queue_free()
+		var player = get_node(spawn_path).get_node(str(id))
+		player_color = player.color
+		player.queue_free()
 	
 	if multiplayer.is_server(): 
-		spawned_players -= 1
-		game_controller.unregister_player(id)
+		spawned_players[colors.find(player_color)] = false
+		game_controller.unregister_player(player_color)
 		
 # ---------------------------------------------------------------------------- #
