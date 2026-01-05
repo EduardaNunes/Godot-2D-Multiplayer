@@ -4,9 +4,16 @@ extends Sprite2D
 
 # ---------------------------------------------------------------------------- #
 
+func _ready() -> void:
+	if not is_multiplayer_authority():
+		visible = false
+
+
 func _physics_process(delta: float) -> void:
-	global_position = get_global_mouse_position()
-	look_at(Player.position)
-	rotation += PI
+	
+	if is_multiplayer_authority():
+		global_position = get_global_mouse_position()
+		look_at(Player.position)
+		rotation += PI
 
 # ---------------------------------------------------------------------------- #
