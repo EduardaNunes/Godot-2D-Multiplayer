@@ -62,7 +62,7 @@ func check_lobby_status():
 		if timer.is_stopped():
 			current_countdown = COUNTDOWN_TIME
 			timer.start()
-			update_lobby_ui.rpc("O jogo começa em: ", str(current_countdown))
+			update_lobby_ui.rpc("O jogo vai inicar em: ", str(current_countdown))
 	
 	# Case 3: lobby dont have enougth players -> cancel timer
 	else:
