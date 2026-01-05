@@ -2,6 +2,9 @@ extends Node2D
 
 # exported to sync
 @export var game_started : bool = false
+@export var current_countdown : int = COUNTDOWN_TIME
+@export var lobby_status_text : String
+
 @onready var player_spawner : MultiplayerSpawner = $MultiplayerSpawner
 
 @onready var timer : Timer = $Timer
@@ -14,13 +17,12 @@ const MIN_PLAYERS_TO_START = 2
 const MAX_PLAYERS = 4
 const COUNTDOWN_TIME = 15
 
-var current_countdown : int = COUNTDOWN_TIME
-
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
-	timer.timeout.connect(_on_server_timer_tick)
-	update_lobby_ui.call_deferred("Aguardando Jogadores...", "")
+	if multiplayer.is_server():
+		timer.timeout.connect(_on_server_timer_tick)
+		update_lobby_ui("Aguardando Jogadores...", "")
 
 # ---------------------------------------------------------------------------- #
 
@@ -62,29 +64,33 @@ func check_lobby_status():
 		if timer.is_stopped():
 			current_countdown = COUNTDOWN_TIME
 			timer.start()
-			update_lobby_ui.rpc("O jogo vai inicar em: ", str(current_countdown))
+			update_lobby_ui("O jogo vai inicar em: ", str(current_countdown))
 	
-	# Case 3: lobby dont have enougth players -> cancel timer
+	# Case 3: lobby dont have enougth players anymore -> cancel timer
 	else:
 		if not timer.is_stopped():
 			timer.stop()
-			update_lobby_ui.rpc("Aguardando Jogadores...", "")
+			update_lobby_ui("Aguardando Jogadores...", "")
+
+# ---------------------------------------------------------------------------- #
 
 func _on_server_timer_tick():
 	current_countdown -= 1
-	update_lobby_ui.rpc("O jogo começa em: ", str(current_countdown))
+	update_lobby_ui("O jogo vai iniciar em: ", str(current_countdown))
 	
 	if current_countdown <= 0:
 		timer.stop()
 		start_game()
+
+# ---------------------------------------------------------------------------- #
 		
-@rpc("authority", "call_local", "reliable")
 func start_game():
 	game_started = true
 	timer_label.visible = false
 	timer_text_label.visible = false
 
-@rpc("authority", "call_local", "reliable")
+# ---------------------------------------------------------------------------- #
+
 func update_lobby_ui(text_to_show: String, timer_countdown: String):
 	timer_text_label.text = text_to_show
 	timer_label.text = timer_countdown
